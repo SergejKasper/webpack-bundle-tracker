@@ -12,7 +12,7 @@ var DEFAULT_LOG_TIME = false;
 function Plugin(options) {
   this.contents = {};
   this.options = options || {};
-  this.options = this.options.suffix || '';
+  this.options.suffix || '';
   this.options.filename = this.options.filename || DEFAULT_OUTPUT_FILENAME;
   if (this.options.logTime === undefined) {
     this.options.logTime = DEFAULT_LOG_TIME;

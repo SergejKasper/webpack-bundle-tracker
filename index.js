@@ -12,7 +12,7 @@ var DEFAULT_LOG_TIME = false;
 function Plugin(options) {
   this.contents = {};
   this.options = options || {};
-  this.options.suffix || '';
+  this.options.suffix = this.options.suffix || '';
   this.options.filename = this.options.filename || DEFAULT_OUTPUT_FILENAME;
   if (this.options.logTime === undefined) {
     this.options.logTime = DEFAULT_LOG_TIME;
@@ -56,7 +56,7 @@ Plugin.prototype.apply = function(compiler) {
       var chunks = {};
       stats.compilation.chunks.map(function(chunk){
         var files = chunk.files.map(function(file){
-          file = file + this.options.suffix;
+          file = file + compiler.options.suffix;
           var F = {name: file};
           if (compiler.options.output.publicPath) {
             F.publicPath= compiler.options.output.publicPath + file;
